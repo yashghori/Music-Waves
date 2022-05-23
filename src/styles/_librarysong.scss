@@ -1,0 +1,27 @@
+.library_song {
+  display: flex;
+  flex-direction: row;
+  padding: 1rem;
+  cursor: pointer;
+  &:hover {
+    transition: all 0.3s ease;
+    background-color: rgb(204, 226, 233);
+  }
+  img {
+    width: 20%;
+    border-radius: 5px;
+  }
+  .name_artist {
+    padding-left: 1rem;
+  }
+  h3 {
+    font-size: 1rem;
+  }
+  h4 {
+    font-size: 0.8rem;
+  }
+}
+
+.selected {
+  background-color: rgb(204, 226, 233);
+}
