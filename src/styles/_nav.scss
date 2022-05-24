@@ -1,28 +1,78 @@
-nav{
-    min-height: 10vh;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+$primary_blue: #2eb1ed;
+$primary_grey: #666666;
+$primary_grey_dark: #bbbbbb;
+$secondary_blue: #2eb0edad;
 
-    button{
-        background: transparent;
-        border: none;
-        cursor: pointer;
-        border: 2px solid rgb(65, 65, 65);
-        padding: 0.6rem 1rem;
-        border-radius: 0.4rem;
-        transition: all 0.3s ease;
-        &:hover{
-            background: rgb(65, 65, 65);
-            color: white;
-            
-        }
+nav {
+  min-height: 10vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: relative;
+
+  h1 {
+    color: $primary_blue;
+    span {
+      display: inline-block;
+      text-align: center;
+      line-height: 36px;
+      height: 40px;
+      width: 40px;
+      border-radius: 50%;
+      border: 2px solid #2eb1ed;
+      font-weight: 600;
+      text-transform: uppercase;
+      animation: spin 10s linear infinite;
     }
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+  }
+
+  button {
+    background: #c3b8b847;
+    color: $primary_grey;
+    border: none;
+    cursor: pointer;
+    backdrop-filter: blur(3.5px);
+    border-radius: 0.4rem;
+    padding: 0.6rem 1rem;
+    transition: all 0.3s ease;
+    &:hover {
+      background: $primary_blue;
+      color: white;
+    }
+  }
+  .dark_button {
+    background: rgba(83, 81, 81, 0.4);
+    color: $primary_grey_dark;
+  }
+  .toggle_mode {
+    position: absolute;
+    background: none;
+    border: 2px solid $primary_grey;
+    border-top: 0;
+    border-radius: 1px;
+    transform: rotate(90deg);
+    top: 50%;
+    right: -29px;
+    outline: none;
+    &:hover {
+      background: transparent;
+      color: grey;
+    }
+  }
+
 }
-@media screen and (max-width: 768px){
-    nav{
-        button{
-            z-index: 2;
-        }
+@media screen and (max-width: 768px) {
+  nav {
+    button {
+      z-index: 2;
     }
+  }
 }

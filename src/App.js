@@ -19,6 +19,7 @@ function App() {
     animationPercentage: 0,
   });
   const [isLibraryOpen, setIsLibraryOpen] = useState(false);
+  const [isDark, setIsDark] = useState(false);
 
   const timeUpdateHandler = (e) => {
     let current = e.target.currentTime;
@@ -49,13 +50,25 @@ function App() {
 
   return (
     <>
-      <div className={`app ${isLibraryOpen ? "library_active" : ""} `}>
+      <div
+        className={`app  ${isLibraryOpen ? "library_active" : ""} ${
+          isDark ? "dark_back" : ""
+        } `}
+      >
         <Nav
+          isDark={isDark}
+          setIsDark={setIsDark}
           isLibraryOpen={isLibraryOpen}
           setIsLibraryOpen={setIsLibraryOpen}
         />
-        <Song currentSong={currentSong} isLibraryOpen={isLibraryOpen} />
+        <Song
+          isDark={isDark}
+          isPlaying={isPlaying}
+          currentSong={currentSong}
+          isLibraryOpen={isLibraryOpen}
+        />
         <Player
+          isDark={isDark}
           isLibraryOpen={isLibraryOpen}
           setSongs={setSongs}
           setSongTime={setSongTime}
@@ -70,6 +83,7 @@ function App() {
           setCurrentSong={setCurrentSong}
         />
         <Library
+          isDark={isDark}
           isLibraryOpen={isLibraryOpen}
           setSongs={setSongs}
           audioRef={audioRef}

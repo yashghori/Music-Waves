@@ -9,6 +9,7 @@ import {
 
 
 const Player = ({
+  isDark,
   setSongs,
   audioRef,
   currentIndex,
@@ -29,7 +30,7 @@ const Player = ({
       if (playPromise !== undefined) {
         playPromise.then((audio) => {
           audioRef.current.play();
-          
+
         })
       }
     }
@@ -151,7 +152,7 @@ const Player = ({
     transform: `translateX(${songTime.animationPercentage}%)`
   }
   const colorAnim = {
-    background: `linear-gradient(to right, ${currentSong.color[0]}, ${currentSong.color[1]})`,
+    // background: `${currentSong.color[1]}`,
     // backgroung: `linear-gradient(to right, #333,#555)`,
     // background: "red"
   }
@@ -159,7 +160,7 @@ const Player = ({
   return (
     <div className="player">
       <div className="time-control">
-        <p>{getTime(songTime.currentTime)}</p>
+        <p className={` current_time ${isDark ? "dark_current_time" : ""} `} >{getTime(songTime.currentTime)}</p>
         <div style={colorAnim} className="track">
           <input
             onChange={dragHandler}
@@ -170,9 +171,9 @@ const Player = ({
 
 
           />
-          <div style={trackAnim} className="animate_track"></div>
+          <div style={trackAnim} className={`animate_track ${isDark ? "dark_animate" : ""} `}></div>
         </div>
-        <p>{getTime(songTime.duration)}</p>
+        <p className={` duration_time ${isDark ? "dark_duration_time" : ""} `} >{getTime(songTime.duration)}</p>
       </div>
 
       <div className="play-control">

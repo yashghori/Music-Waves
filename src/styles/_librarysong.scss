@@ -5,7 +5,6 @@
   cursor: pointer;
   &:hover {
     transition: all 0.3s ease;
-    background-color: rgb(204, 226, 233);
   }
   img {
     width: 20%;
@@ -23,5 +22,9 @@
 }
 
 .selected {
-  background-color: rgb(204, 226, 233);
+  background-color: rgb(201, 240, 252);
+}
+
+.selected_dark {
+  background-color: rgba(83, 81, 81, 0.4);
 }

@@ -11,10 +11,15 @@
   overflow: scroll;
   transform: translateX(-100%);
   transition: all 0.5s ease;
-  opacity: 0;
+  // opacity: 0;
   h2 {
     padding: 1rem;
   }
+}
+.dark_library{
+  background-color: #2b2c2f;
+  box-shadow: 2px 2px 50px rgb(29, 29, 29);
+
 }
 .open {
   transform: translateX(0);
