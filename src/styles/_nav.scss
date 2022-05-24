@@ -23,6 +23,7 @@ nav {
       font-weight: 600;
       text-transform: uppercase;
       animation: spin 10s linear infinite;
+      margin-right: 0.7rem;
     }
     @keyframes spin {
       0% {
@@ -67,7 +68,6 @@ nav {
       color: grey;
     }
   }
-
 }
 @media screen and (max-width: 768px) {
   nav {
