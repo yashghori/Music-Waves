@@ -17,6 +17,7 @@ const Player = ({
   setSongTime,
   songTime,
   setCurrentSong,
+  currentSong,
   isPlaying,
   setIsPlaying,
 }) => {
@@ -28,6 +29,7 @@ const Player = ({
       if (playPromise !== undefined) {
         playPromise.then((audio) => {
           audioRef.current.play();
+          
         })
       }
     }
@@ -144,21 +146,32 @@ const Player = ({
     }
   };
 
+  // styles for animation trackbar
+  const trackAnim = {
+    transform: `translateX(${songTime.animationPercentage}%)`
+  }
+  const colorAnim = {
+    background: `linear-gradient(to right, ${currentSong.color[0]}, ${currentSong.color[1]})`,
+    // backgroung: `linear-gradient(to right, #333,#555)`,
+    // background: "red"
+  }
+
   return (
     <div className="player">
       <div className="time-control">
         <p>{getTime(songTime.currentTime)}</p>
-        <input
-          onChange={dragHandler}
-          min={0}
-          max={songTime.duration || 0}
-          value={songTime.currentTime}
-          type="range"
-          // style={{
-          //   background: `linear-gradient(to right, #ff9800 0%, #ff9800 ${songTime.currentTime}%, #fff ${songTime.currentTime}%, #fff 100%)`
-          // }}
+        <div style={colorAnim} className="track">
+          <input
+            onChange={dragHandler}
+            min={0}
+            max={songTime.duration || 0}
+            value={songTime.currentTime}
+            type="range"
 
-        />
+
+          />
+          <div style={trackAnim} className="animate_track"></div>
+        </div>
         <p>{getTime(songTime.duration)}</p>
       </div>
 

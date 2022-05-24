@@ -16,13 +16,35 @@ function App() {
   const [songTime, setSongTime] = useState({
     currentTime: 0,
     duration: 0,
+    animationPercentage: 0,
   });
   const [isLibraryOpen, setIsLibraryOpen] = useState(false);
 
   const timeUpdateHandler = (e) => {
     let current = e.target.currentTime;
     let duration = e.target.duration;
-    setSongTime({ ...songTime, currentTime: current, duration: duration });
+    // Calculate percentage
+
+    const roundedCurrent = Math.round(current);
+    const roundedDuration = Math.round(duration);
+
+    const animation = Math.round((roundedCurrent / roundedDuration) * 100);
+
+    setSongTime({
+      ...songTime,
+      currentTime: current,
+      duration: duration,
+      animationPercentage: animation,
+    });
+  };
+
+  // const songEndHandler = async () => {
+
+  // };
+  const songEndHandler = async () => {
+    // const oneIndex = songs.findIndex((song) => song.Id === currentSong.Id);
+    // await setCurrentSong(songs[(oneIndex + 1) % songs.length]);
+    // if (isPlaying) audioRef.current.play();
   };
 
   return (
@@ -59,6 +81,7 @@ function App() {
           onTimeUpdate={timeUpdateHandler}
           ref={audioRef}
           src={currentSong.audio}
+          onEnded={songEndHandler}
         ></audio>
       </div>
     </>
