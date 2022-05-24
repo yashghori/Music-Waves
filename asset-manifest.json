@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Music-Waves/static/css/main.4cad0dc3.css",
+    "main.js": "/Music-Waves/static/js/main.da21a0ac.js",
+    "index.html": "/Music-Waves/index.html",
+    "main.4cad0dc3.css.map": "/Music-Waves/static/css/main.4cad0dc3.css.map",
+    "main.da21a0ac.js.map": "/Music-Waves/static/js/main.da21a0ac.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4cad0dc3.css",
+    "static/js/main.da21a0ac.js"
+  ]
+}
