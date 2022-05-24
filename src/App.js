@@ -49,13 +49,14 @@ function App() {
 
   return (
     <>
-      <div className="app">
+      <div className={`app ${isLibraryOpen ? "library_active" : ""} `}>
         <Nav
           isLibraryOpen={isLibraryOpen}
           setIsLibraryOpen={setIsLibraryOpen}
         />
-        <Song currentSong={currentSong} />
+        <Song currentSong={currentSong} isLibraryOpen={isLibraryOpen} />
         <Player
+          isLibraryOpen={isLibraryOpen}
           setSongs={setSongs}
           setSongTime={setSongTime}
           songTime={songTime}

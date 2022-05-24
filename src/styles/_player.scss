@@ -45,17 +45,24 @@ input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none;
   height: 16px;
   width: 16px;
-  // background: black;
+  border: none;
+  background: transparent;
+}
+input[type="range"]::-moz-range-thumb {
+  -webkit-appearance: none;
+  border: none;
+  background: transparent;
 }
 .track {
   background: grey;
   // background: linear-gradient(to left, #333, red);
   // backgroung: linear-gradient(to left, #333, #333 50%, #333 75%, #333 30%);
   width: 100%;
-  height: 0.4rem;
+  height: 0.3rem;
   border-radius: 1rem;
   position: relative;
   overflow: hidden;
+  outline: none;
 }
 .animate_track {
   background: lightgrey;
@@ -66,4 +73,15 @@ input[type="range"]::-webkit-slider-thumb {
   left: 0;
   transform: translateX(0%);
   pointer-events: none;
+  border-radius: 1rem;
+}
+@media screen and (max-width: 768px) {
+  .player {
+    .time-control {
+      width: 90%;
+    }
+    .play-control {
+      width: 50%;
+    }
+  }
 }
